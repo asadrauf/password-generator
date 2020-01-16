@@ -1,6 +1,6 @@
 
 
-//--------------HTML ASCII Array for all the possible lower, upper, number and symbols -----------------//
+//--------------HTML ASCII char Array for all the possible lower, upper, number and symbols -----------------//
 
 var tempArray = [];
 var LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122); //lowercase 
@@ -30,22 +30,17 @@ form.addEventListener('submit', function(event) {
         
     }
 
+   
     var includeLowerCase = confirm("Do you want Lowercase");
     var includeUpperCase = confirm("Do you want Uppercase");
     var includeNumbers = confirm("Do you want Numbers");
     var includeSymbols = confirm("Do you want symbols");
+    
     var password = generatePassword(userGuess, includeLowerCase, includeUpperCase, includeNumbers, includeSymbols);
 
-   // if(confirm){
-        
         passwordDisplay.innerText = password;
         document.getElementById("clipboard").disabled = false;
-   // }
-
-   // else{
-      //  passwordDisplay.innerText = "Please select any option to generate your desired pattern password";
-       // document.getElementById("clipboard").disabled = true;
-   // }
+   
 });
 
 //----------Copy pasword  to clipboard function-------------//
@@ -66,7 +61,7 @@ clipboardEl.addEventListener('click', function(){
     alert('password copied to clipboard');
     
        document.getElementById("clipboard").disabled = true;
-       passwordDisplay.innerText = "";// will clear the displayed password once you clicked on copy to clipboard button
+      // passwordDisplay.innerText = ""; will clear the displayed password once you clicked on copy to clipboard button
     
     
 });
