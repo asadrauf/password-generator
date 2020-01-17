@@ -21,25 +21,53 @@ form.addEventListener('submit', function(event) {
     var userGuess = prompt("Enter number greater than 8");
 
     if (userGuess <= 8) {
-        alert("try again");
+        alert("Password length must be greater than 8");
         return;
     }
+
+   
+    
     else {
         
         generatePassword();
         
     }
 
+    
+
    
     var includeLowerCase = confirm("Do you want Lowercase");
     var includeUpperCase = confirm("Do you want Uppercase");
     var includeNumbers = confirm("Do you want Numbers");
     var includeSymbols = confirm("Do you want symbols");
+
+    if (includeLowerCase || includeUpperCase || includeNumbers || includeSymbols || includeSymbols == confirm){
     
     var password = generatePassword(userGuess, includeLowerCase, includeUpperCase, includeNumbers, includeSymbols);
 
         passwordDisplay.innerText = password;
         document.getElementById("clipboard").disabled = false;
+
+    }
+
+    else {
+        alert ("Please select any of the following option for your desired option");
+    }
+
+    if (password.length > 8 && password.length < 12){
+        
+        var arr = ["Strong Password"];
+        document.body.append(arr);
+
+    }
+
+    if (password.length >= 12){
+        
+        var arr = ["Very Strong Password"];
+    
+        document.body.append(arr);
+
+    }
    
 });
 
@@ -47,7 +75,7 @@ form.addEventListener('submit', function(event) {
 clipboardEl.addEventListener('click', function(){
    
     const textarea = document.createElement('textarea');
-    const password = passwordDisplay.innerText
+    const password = passwordDisplay.innerText;
 
     if(password) {
    
@@ -58,12 +86,15 @@ clipboardEl.addEventListener('click', function(){
     textarea.remove();
     
     }
+
+    
+   
     alert('password copied to clipboard');
     
-       document.getElementById("clipboard").disabled = true;
+       document.getElementById("clipboard").disabled = false;
       // passwordDisplay.innerText = ""; will clear the displayed password once you clicked on copy to clipboard button
     
-    
+   
 });
 
 //------------End of copy password to clipboard----------------------//
@@ -111,7 +142,4 @@ function arrayFromLowToHigh(low, high){
     }
     return array;
 }
-
-
-
 

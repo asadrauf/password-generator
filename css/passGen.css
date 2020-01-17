@@ -83,7 +83,13 @@ body{
     transition: transform .4s ease;
     
   } 
+#main{
+    background-color: red;
+}
 
+body{
+    color: red;
+}
 
 
   
