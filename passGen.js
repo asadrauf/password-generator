@@ -3,10 +3,10 @@
 //--------------HTML ASCII char Array for all the possible lower, upper, number and symbols -----------------//
 
 var tempArray = [];
-var LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122); //lowercase 
-var NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57); //numbers
-var UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90); //uppercase
-var SYMBOLS_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(arrayFromLowToHigh(58, 64))
+var lowerCase = arrayFromLowToHigh(97, 122); //lowercase 
+var numberCase = arrayFromLowToHigh(48, 57); //numbers
+var upperCase = arrayFromLowToHigh(65, 90); //uppercase
+var symbolCase = arrayFromLowToHigh(33, 47).concat(arrayFromLowToHigh(58, 64))
 .concat(arrayFromLowToHigh(91, 96)).concat(arrayFromLowToHigh(123, 126)) //Combining all possible symbols
 
 //--------------DOM Elements--------------//
@@ -24,17 +24,12 @@ form.addEventListener('submit', function(event) {
         alert("Password length must be greater than 8");
         return;
     }
-
-   
     
     else {
         
         generatePassword();
         
     }
-
-    
-
    
     var includeLowerCase = confirm("Do you want Lowercase");
     var includeUpperCase = confirm("Do you want Uppercase");
@@ -54,19 +49,25 @@ form.addEventListener('submit', function(event) {
         alert ("Please select any of the following option for your desired option");
     }
 
-    if (password.length > 8 && password.length < 12){
+    if (password.length > 8 && password.length < 11){
         
-        var arr = ["Strong Password"];
+        var arr = ["Password Strength: Normal Password"];
         document.body.append(arr);
 
     }
 
-    if (password.length >= 12){
+    if (password.length >= 11 && password.length < 15){
         
-        var arr = ["Very Strong Password"];
+        var arr = ["Password Strength: Strong Password"];
     
         document.body.append(arr);
 
+    }
+
+    if (password.length >= 15){
+        var arr = ["Password Strength: Very Strong Password"];
+    
+        document.body.append(arr);
     }
    
 });
@@ -105,22 +106,22 @@ function generatePassword(userGuess, includeLowercaseElement, includeUppercaseEl
     
     if (includeLowercaseElement){
 
-       charCodes = charCodes.concat(LOWERCASE_CHAR_CODES);
+       charCodes = charCodes.concat(lowerCase);
 
     }
     if (includeUppercaseElement){
         
-        charCodes = charCodes.concat(UPPERCASE_CHAR_CODES);
+        charCodes = charCodes.concat(upperCase);
 
     }
     if (includeSymbolsElement){
         
-        charCodes = charCodes.concat(SYMBOLS_CHAR_CODES);
+        charCodes = charCodes.concat(symbolCase);
 
     }
     if (includeNumbersElement){
         
-        charCodes = charCodes.concat(NUMBER_CHAR_CODES);
+        charCodes = charCodes.concat(numberCase);
 
     }
 
