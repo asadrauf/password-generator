@@ -19,7 +19,6 @@ form.addEventListener('submit', function(event) {
     event.preventDefault();
     
     var userGuess = prompt("Enter number greater than 8");
-
     if (userGuess <= 8) {
         alert("Password length must be greater than 8");
         return;
@@ -49,25 +48,29 @@ form.addEventListener('submit', function(event) {
         alert ("Please select any of the following option for your desired option");
     }
 
-    if (password.length > 8 && password.length < 11){
-        
-        var arr = ["Password Strength: Normal Password"];
-        document.body.append(arr);
+//---------------Below code will determine the strength of the password----------------//
 
+    if (password.length > 8 && password.length < 11){
+       
+        var message = document.getElementById("messageBlock");
+        var arr = "Password Strength: Normal Password";
+        message.append(arr);
+    
     }
 
     if (password.length >= 11 && password.length < 15){
         
-        var arr = ["Password Strength: Strong Password"];
-    
-        document.body.append(arr);
+        var message = document.getElementById("messageBlock");
+        var arr = "Password Strength: Strong Password";
+        message.append(arr);
 
     }
 
     if (password.length >= 15){
-        var arr = ["Password Strength: Very Strong Password"];
-    
-        document.body.append(arr);
+        var message = document.getElementById("messageBlock");
+        var arr = "Password Strength: Very Strong Password";
+        message.append(arr);
+        
     }
    
 });
@@ -88,13 +91,8 @@ clipboardEl.addEventListener('click', function(){
     
     }
 
-    
-   
     alert('password copied to clipboard');
-    
-       document.getElementById("clipboard").disabled = false;
-      // passwordDisplay.innerText = ""; will clear the displayed password once you clicked on copy to clipboard button
-    
+    document.getElementById("messageBlock").innerHTML = "";   
    
 });
 
@@ -135,7 +133,7 @@ function generatePassword(userGuess, includeLowercaseElement, includeUppercaseEl
 }
 
 
-//------- Defining a function to generate an array for us from low to high from ASCII code---//
+//------- Defining a function to generate an array for us  from ASCII code---//
 function arrayFromLowToHigh(low, high){
     var array = [];
     for (let i = low; i <= high; i++){

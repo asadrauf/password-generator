@@ -87,7 +87,15 @@ body{
     background-color: red;
 }
 
-
+#messageBlock{
+    width: 300px;
+    height: 30px;
+    color: #006699;
+    font-family: serif;
+    text-align: center;
+   
+    
+}
 
 
   
