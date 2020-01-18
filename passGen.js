@@ -128,7 +128,7 @@ function generatePassword(userGuess, includeLowercaseElement, includeUppercaseEl
         var characterCode= charCodes[Math.floor(Math.random() * charCodes.length)];
         passwordCharacters.push (String.fromCharCode(characterCode));
     }
-
+    document.getElementById("messageBlock").innerHTML = "";  
     return passwordCharacters.join('');
 }
 
