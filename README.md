@@ -1,4 +1,4 @@
-### password-generator
+#### password-generator  Deployed link -->https://asadrauf.github.io/password-generator/
 Password Generator app is for generating secure passwords using HTML ASCII code characters. You are given options to choose which characters your password should contain. You will have to Enter the number above 8 to generate your desired password. This app will tell you wheather your password is strong or very strong based on the length the password
 
 * * Completed Tasks 
